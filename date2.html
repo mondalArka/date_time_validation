@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<input type="date" id="mydate">
+
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" >
+    </script>
+      
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" >
+    </script>
+
+    <script type="text/javascript">
+        $(function() {
+	var today=new Date()
+    var formatedMaxDate=today.toISOString().split('T')
+    var year=parseInt(formatedMaxDate[0])-18
+    var year_str=year.toString()
+    console.log(year_str);
+
+    var day=today.getDay()
+    if(day<10){
+        day=today.getDay()*10
+    }
+    var day_str=day.toString()
+    var month_int=today.getMonth()+1
+
+    if(month_int<10){
+        var x=month_int.toString()
+        var month_str='0'+x
+    }else{
+        var month_str=x
+    }
+    
+    console.log("day "+day);
+    console.log("month "+month_str);
+    var Maxdate=year_str+'-'+month_str+'-'+day_str
+    console.log(Maxdate);
+    
+   
+    document.getElementById('mydate').setAttribute("max",Maxdate)
+
+    var minDate= new Date("1999-01-01");
+    var formatedMinDate=minDate.toISOString().split('T')[0]
+    console.log(formatedMinDate);
+    document.getElementById('mydate').setAttribute("min",formatedMinDate)
+});
+    </script>
+</body>
+</html>
+

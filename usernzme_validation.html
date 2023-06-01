@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+    <label for="">User Name</label><br>
+    <input type="text" name="" id="username">
+
+    <div id="error"></div>
+
+    <label for="">password</label><br>
+    <input type="text" name="" id="password">
+<br>
+<input type="submit" value="Submit" id="submit">
+<div id="success"></div>
+</form>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+       
+        $('#submit').click(function(){
+            var user=$('#username').val()
+        console.log(user);
+        console.log(user.length);
+
+            if(user==""){
+                $('#error').html('Username cannot be blank')
+                $('#error').css('color','red')
+                return false
+            }if(user.length<=2 ||user.length>25){
+                $('#error').html('Username must be within 3 to 25 characters')
+                $('#error').css('color','red')
+                return false
+            }else{
+                $('#success').html('Success')
+                $('#success').css('color','blue')
+                return false
+            }
+        })
+    })
+
+</script>
+
+</body>
+
+</html>
